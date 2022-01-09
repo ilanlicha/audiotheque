@@ -26,7 +26,7 @@ public class ArtistController {
             produces = MediaType.APPLICATION_JSON_VALUE,
             value = "/{id}"
     )
-    public Artist findById(@PathVariable Integer id) {
+    public Artist findById(@PathVariable Long id) {
         Optional<Artist> artist = artistRepository.findById(id);
         if(artist.isPresent()){
             return artist.get();
@@ -90,7 +90,7 @@ public class ArtistController {
             value = "/{id}"
     )
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void deleteArtist(@PathVariable Integer id){
+    public void deleteArtist(@PathVariable Long id){
         artistRepository.deleteById(id);
     }
 

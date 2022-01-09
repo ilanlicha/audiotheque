@@ -1,7 +1,6 @@
 package com.ipiecole.java.audio.audiotheque.controller;
 
 import com.ipiecole.java.audio.audiotheque.model.Album;
-import com.ipiecole.java.audio.audiotheque.model.Artist;
 import com.ipiecole.java.audio.audiotheque.repository.AlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,7 +29,7 @@ public class AlbumController {
             value = "/{id}"
     )
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Integer id){
+    public void delete(@PathVariable Long id){
         albumRepository.delete(albumRepository.getById(id));
     }
 }

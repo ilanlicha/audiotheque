@@ -12,18 +12,18 @@ public class Artist{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String name;
 
     @JsonIgnoreProperties("artist")
     @OneToMany(mappedBy = "artist")
     private Set<Album> albums = new HashSet<>();
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public class Artist{
 
     public Artist(){}
 
-    public Artist(Integer id, String name){
+    public Artist(Long id, String name){
         this.id = id;
         this.name = name;
     }

@@ -1,7 +1,5 @@
 package com.ipiecole.java.audio.audiotheque.model;
 
-import org.springframework.web.bind.annotation.Mapping;
-
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -10,18 +8,18 @@ public class Album{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String title;
 
     @ManyToOne
     @JoinColumn( name = "artist_id" )
     private Artist artist;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -48,15 +46,15 @@ public class Album{
         this.artist = artist;
     }
 
-    /*@Override
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Album{");
         sb.append("id=").append(id);
         sb.append(", title='").append(title).append('\'');
-        sb.append(", artist_id=").append(artistid);
+        sb.append(", artist_id=").append(artist.getId());
         sb.append('}');
         return sb.toString();
-    }*/
+    }
 
     @Override
     public boolean equals(Object o) {

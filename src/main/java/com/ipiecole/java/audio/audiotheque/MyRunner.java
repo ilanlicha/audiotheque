@@ -16,9 +16,9 @@ public class MyRunner implements CommandLineRunner {
 
    /* @Autowired
     AlbumRepository albumRepository;
-
+*/
     @Autowired
-    ArtistRepository artistRepository;*/
+    ArtistRepository artistRepository;
 
     @Override
     public void run(String... strings) throws Exception {
@@ -41,10 +41,10 @@ public class MyRunner implements CommandLineRunner {
 
 
         //print(artistRepository.findAll());
-        /*List<Artist> artists = artistRepository.findAll();
+        List<Artist> artists = artistRepository.findAll();
         for(Artist ar : artists){
             print(ar);
-        }*/
+        }
         /*Artist artist = artistRepository.findByName("Accept");
         print(artist);*/
         /*List<Album> albums = albumRepository.findAll();
