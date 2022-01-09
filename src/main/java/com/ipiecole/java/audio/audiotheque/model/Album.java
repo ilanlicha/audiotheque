@@ -12,8 +12,10 @@ public class Album{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
-    @Column(name = "artist_id")
-    private Integer artistid;
+
+    @ManyToOne
+    @JoinColumn( name = "artist_id" )
+    private Artist artist;
 
     public Integer getId() {
         return id;
@@ -31,23 +33,22 @@ public class Album{
         this.title = title;
     }
 
-    public Integer getArtist_id() {
-        return artistid;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setArtist_id(Integer artist_id) {
-        this.artistid = artist_id;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
 
     public Album(){}
 
-    public Album(Integer id, String title, Integer artist_id){
-        this.id = id;
+    public Album(String title, Artist artis){
         this.title = title;
-        this.artistid = artist_id;
+        this.artist = artist;
     }
 
-    @Override
+    /*@Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Album{");
         sb.append("id=").append(id);
@@ -55,22 +56,20 @@ public class Album{
         sb.append(", artist_id=").append(artistid);
         sb.append('}');
         return sb.toString();
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Album)) return false;
-
         Album album = (Album) o;
-
-        if (!Objects.equals(id, album.id)) return false;
-        if (title != null ? !title.equals(album.title) : album.title != null) return false;
-        return Objects.equals(artistid, album.artistid);
+        return Objects.equals(id, album.id) &&
+                Objects.equals(title, album.title) &&
+                Objects.equals(artist, album.artist);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, artistid);
+        return Objects.hash(id, title, artist);
     }
 }

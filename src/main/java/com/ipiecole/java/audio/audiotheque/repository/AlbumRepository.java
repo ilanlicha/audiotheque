@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
     List<Album> findByTitle(String title);
-    List<Album> findByArtistid(Integer artist_id);
+    //List<Album> findByArtistid(Integer artist_id);
+    Boolean existsByTitleAllIgnoreCase(String title);
 }

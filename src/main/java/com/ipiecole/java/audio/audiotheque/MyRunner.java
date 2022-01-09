@@ -9,19 +9,20 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class MyRunner implements CommandLineRunner {
 
-    @Autowired
+   /* @Autowired
     AlbumRepository albumRepository;
 
     @Autowired
-    ArtistRepository artistRepository;
+    ArtistRepository artistRepository;*/
 
     @Override
     public void run(String... strings) throws Exception {
-       /* Artist ar1 = new Artist(1,"test1");
+        /*Artist ar1 = new Artist(1,"test1");
         Artist ar2 = new Artist(1,"test1");
         Artist ar3 = new Artist(2,"coucou");
 
@@ -67,10 +68,13 @@ public class MyRunner implements CommandLineRunner {
         /*Artist artist = artistRepository.findByNameAllIgnoreCase("Alberto Turco & nov Schola Gregoriana");
         print(artist);*/
 
-        List<Artist> artists = artistRepository.findByNameIsContainingAllIgnoreCase("a");
+        /*List<Artist> artists = artistRepository.findByNameIsContainingAllIgnoreCase("a");
         for(Artist ar : artists) {
             print(ar);
-        }
+        }*/
+
+
+
     }
 
     public static void print(Object t) {
